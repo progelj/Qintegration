@@ -1,0 +1,240 @@
+
+doctype html
+html
+    head
+        meta(http-equiv='Content-Type', content='text/html; charset=UTF-8')
+        style.
+            *{
+                font-family: sans-serif;
+                box-sizing: border-box;
+            }
+            body{
+                margin: 0;
+                padding: 20px;
+                //- overflow: hidden;
+            }
+            table{
+                width:100%;
+                border-spacing: 0;
+                table-layout: fixed;
+                border-collapse: collapse;
+            }
+            td{
+                padding: 3px 10px;
+            }
+
+            .bordered{ border: 1px solid #ABCDE8; }
+
+            .back-dark{ background-color: #000000; }
+            .back-light{ background-color: #F0F8F4; }
+            .back-blue{ background-color: #83B5DD; }
+            .back-lightblue{ background-color: #ABCDE8; }
+
+            .block{  display: block; }
+            .iblock{ display: inline-block; }
+            .inline{ display: inline; }
+
+            .text-black{ color: black; }
+            .text-dark{  color: #505050; }
+            .text-clear{ color: #909090; }
+            .text-white{ color: white; }
+            .text-bold{  font-weight: bold; }
+
+            .text-left{ text-align: left; }
+            .text-right{ text-align: right; }
+            .text-center{ text-align: center; }
+            .text-top{ vertical-align: top; }
+            .text-middle{ vertical-align: middle; }
+            .text-bottom{ vertical-align: bottom; }
+
+            .text-xs{ font-size: 10px;  }
+            .text-s{  font-size: 12px; }
+            .text-m{  font-size: 16px; }
+            .text-l{  font-size: 20px; }
+            .text-xl{ font-size: 30px; }
+            .text-xxl{ font-size: 40px; }
+            .text-huge{ font-size: 50px; }
+            .small{ font-size: 85% }
+
+            .height-min{ height: 2px;  }
+            .height-xs{ height: 6px;  }
+            .height-s{  height: 12px; }
+            .height-m{  height: 18px; }
+            .height-l{  height: 26px; }
+            .height-xl{ height: 36px; }
+            .height-huge{ height: 50px; }
+
+            .divider-min{ height: 1px;  }
+            .divider-xs{ height: 5px;  }
+            .divider-s{  height: 10px; }
+            .divider-m{  height: 15px; }
+            .divider-l{  height: 20px; }
+            .divider-xl{ height: 25px; }
+            .divider-huge{ height: 40px;  }
+
+            .padded{ padding: 15px }
+            .padded-xs{ padding: 5px }
+            .pad-v{ padding: 15px 0 }
+            .pad-h{ padding: 0 15px }
+            .unpad{  padding: 0px; }
+
+            .mar{margin: 15px }
+            .unmar{margin: 0 }
+
+            .divider-xs{ height: 5px;  }
+            .divider-s{  height: 10px; }
+            .divider-m{  height: 15px; }
+            .divider-l{  height: 20px; }
+            .divider-xl{ height: 25px; }
+            .divider-huge{ height: 40px;  }
+
+            .undecored{ text-decoration: none; }
+
+            table td.header{
+                font-size: 12px;
+                color: white;
+                text-align: center;
+                vertical-align: middle;
+                background-color: #83B5DD;
+                border: 1px solid #ABCDE8;
+            }
+
+            table td.subheader{
+                font-size: 10px;
+                color: white;
+                text-align: center;
+                vertical-align: middle;
+                background-color: #A0C8E6;
+                border: 1px solid #ABCDE8;
+            }
+
+            table td.cell{
+                font-size: 10px;
+                color: black;
+                text-align: center;
+                vertical-align: middle;
+                background-color: #F0F8F4;
+                border: 1px solid #ABCDE8;
+                max-width: 100%;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+
+
+            //- table#main_table .header{
+            //-     //- padding-left: 1px!important;
+            //-     //- padding-right: 1px!important;
+            //-     padding: 2px 1px;
+            //- }
+
+            .img{
+                text-align: center;
+                //- height:300px;
+                padding: 3px;
+            }
+
+            .img img{
+            //-     //- border: 1px dotted grey;
+            //-     height: 300px;
+                    max-width: 100%;
+            }
+
+    body
+        table#header_table
+            colgroup
+                col(width="50%")
+                col(width="50%")
+            tbody
+                tr
+                    td
+                        img(height="60px" src="#{header.logo}")
+                    td.text-right
+                        img(height="60px" src="http://quibim.com/resources/web/logo_report.jpg")
+                tr
+                    td
+                        .text-xxl.text-bold() Body
+                        .text-xl(style="white-space: nowrap;") Parenchima Hands-On
+                    td.text-right.text-top
+                        a.block.text-dark.undecored(href="http://quibim.com") http://quibim.com
+                        a.block.text-dark.undecored(href="mailto:info@quibim.com") contact@quibim.com
+                tr.height-min
+                    td.unpad.back-dark(colspan="2")
+                tr.height-m
+                    td.back-blue(colspan="2")
+                tr.height-xs
+                    td.back-lightblue.unpad(colspan="2")
+                tr
+                    td.unpad(colspan="2")
+                        .divider-s
+                        table
+                            colgroup
+                                col(width="20%")
+                                col(width="30%")
+                                col(width="20%")
+                                col(width="30%")
+                            tbody
+                                tr
+                                    td.header   Imaging Center
+                                    td.cell     #{header.center}
+                                    td.header   Patient Name
+                                    td.cell     #{header.patientName}
+                                tr
+                                    td.header   Modality
+                                    td.cell     #{header.modality}
+                                    td.header   Patient ID
+                                    td.cell     #{header.patientID}
+                                tr
+                                    td.header   Study Description
+                                    td.cell     #{header.studyDescription}
+                                    td.header   Patient Sex
+                                    td.cell     #{header.patientSex}
+                                tr
+                                    td.header   Study Date
+                                    td.cell     #{header.studyDate}
+                                    td.header   Birthdate
+                                    td.cell     #{header.patientBirthdate}
+
+        .divider-xs
+
+        table#main_table
+            colgroup
+                col(width="50%")
+                col(width="50%")
+            tbody
+                tr(height="300px")
+                    td.img
+                        img(src="#{images.sas.url}#{images.name.img1}#{images.sas.sas}")
+                    td.img
+                        img(src="#{images.sas.url}#{images.name.img2}#{images.sas.sas}")
+
+                    
+
+                tr.height-min
+
+                tr
+                    td.header
+                    td.header BMK
+                tr
+                    td.header() Mean &plusmn Std
+                    td.cell #{lesion.value1} &plusmn #{lesion.value2}
+                tr
+                    td.header() Median
+                    td.cell #{lesion.value3}
+                tr
+                    td.header() p25
+                    td.cell #{lesion.value4}
+                tr
+                    td.header() p75
+                    td.cell #{lesion.value5}
+
+               
+
+        .divider-m
+
+        table#footer_table
+            tbody
+                tr.text-center
+                    td.text-clear.unpad(style="font-size:9px; white-space: nowrap") Data from this quantification report should be considered as the results of research with an evidence level 2 (Centre for Evidence-based Medicine) in phase of clinical approval.
+                tr.text-center
+                    td.text-clear.unpad(style="font-size:9px") QUIBIM S.L. - Quantitative Imaging Biomarkers in Medicine. Avenida Fernando Abril Martorell 106, Torre A, Biopolo La Fe, Valencia (SPAIN)

@@ -1,0 +1,23 @@
+{
+	"times": {
+		"time1": 40,
+		"time2": 5,
+		"time3": 30,
+		"time4": 30,
+        "time5": 1
+	},
+	"labels": {
+		"label1": "Read",
+		"label2": "Preprocessing",
+		"label3": "Analysis",
+		"label4": "Image Generation",
+        "label5": "Databe storage"
+	},
+	"descriptions": {
+		"description1": "Study Reading",
+		"description2": "Image preprocessing",
+		"description3": "Quantification",
+		"description4": "Parametric maps",
+        "description5": "Database storage"
+	}
+}

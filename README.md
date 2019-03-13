@@ -1,2 +1,1 @@
-# Qintegration
-For quibim algorithms integration workshop
+# workshop_handson
