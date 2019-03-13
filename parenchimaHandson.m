@@ -22,9 +22,9 @@ try
     %%% Load analysis.json, stepwiseConfig.json and standardSeries.json
     %%%%%%%%%%%%%%%%%
 
-    %infoAnalysis=
-    %swInfo=
-    %stdSeriesPath=
+    infoAnalysis=loadjson([resultsPath '/analysis.json']);
+    swInfo=loadjson('stepwiseConfig.json');
+    stdSeriesPath=loadjson('standardSeries.json');
 
     %%%%%%%%%%%%%%%%%
     
@@ -40,9 +40,12 @@ try
     %%% Create Result and Report folders in analysis folder
     %%%%%%%%%%%%%%%%%
 
-    %resultsFolder = 
+
+    resultsFolder = [resultsPath '/Results'];
+    mkdir(resultsFolder);
     
-    %reportFolder= 
+    reportFolder= [resultsPath '/Reports'];
+    mkdir(reportFolder);
 
     %%%%%%%%%%%%%%%%%
     
