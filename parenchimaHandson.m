@@ -49,7 +49,7 @@ try
     resultsFolder = [resultsPath '\Results'];
     mkdir(resultsFolder);
     
-    reportFolder= [resultsPath '\Reports'];
+    reportFolder= [resultsPath '\Report'];
     mkdir(reportFolder);
 
     %%%%%%%%%%%%%%%%%
