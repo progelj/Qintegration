@@ -38,7 +38,8 @@ for i=1:size(infoAnalysis.series,2)
     end
 end   
 
-[roiIdU,indRoi]=unique(roiId,'stable');
+% [roiIdU,indRoi]=unique(roiId,'stable'); % for MATLAB
+[roiIdU,indRoi]=unique(roiId); % for OCTAVE
 
 roiInfoAll.id=roiIdU;
 roiInfoAll.label=roiLabel(indRoi);
@@ -284,6 +285,7 @@ for i=1:size(roiType,1)
         roiPositionNumMerge(i,:)=roiPositionNum(i,:);
     end
     if length(unique(mask.(maskId)(:,:,slNumber(i))))==1;
+        %disp(size(volumeFull));   disp(size(mask.(maskId))); disp(size(currentMask)); %%% PRJ - error in octave - different dimensions swapped x and y.
         mask.(maskId)(:,:,slNumber(i))=currentMask(:,:,i);
     else
         mask.(maskId)(:,:,slNumber(i))=mask.(maskId)(:,:,slNumber(i))+currentMask(:,:,i);
