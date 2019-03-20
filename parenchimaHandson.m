@@ -4,7 +4,7 @@ close all
 clc
 
 %resultsPath='/home/peter/programming/Quibim/CRANEO20190220/biomarker/SK_5c88cf58a72fe8187c6c2866_13_03_2019_09_37';
-resultsPath='C:\Programming\Quibim\CRANEO20190220\biomarker\SK_5c90e37dd4b6ab39b0435425_19_03_2019_12_41';
+%resultsPath='C:\Programming\Quibim\CRANEO20190220\biomarker\SK_5c90e37dd4b6ab39b0435425_19_03_2019_12_41';
 %%% For debugging purposes
 % resultsPath = fullfile(pwd,'PARENCHIMA_HANDSON','CRANEO20190220','biomarker','difusionADC_5c7fa556fa697a467cb729f7_06_03_2019_10_47')
 %%%
