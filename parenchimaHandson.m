@@ -3,6 +3,8 @@ function parenchimaHandson(resultsPath)
 close all
 clc
 
+%resultsPath='/home/peter/programming/Quibim/CRANEO20190220/biomarker/SK_5c88cf58a72fe8187c6c2866_13_03_2019_09_37';
+%resultsPath='C:\Programming\Quibim\CRANEO20190220\biomarker\SK_5c90e37dd4b6ab39b0435425_19_03_2019_12_41';
 %%% For debugging purposes
 % resultsPath = fullfile(pwd,'PARENCHIMA_HANDSON','CRANEO20190220','biomarker','difusionADC_5c7fa556fa697a467cb729f7_06_03_2019_10_47')
 %%%
@@ -24,7 +26,10 @@ try
 
     infoAnalysis=loadjson([resultsPath '/analysis.json']);
     swInfo=loadjson('stepwiseConfig.json');
-    stdSeriesPath=loadjson('standardSeries.json');
+    stdSeriesPath='./standardSeries.json';
+    
+    %seriesName=cell2mat(stdSeriesPath.stdseries);
+    %seriesName=seriesName.name; % FLAIR_AR
 
     %%%%%%%%%%%%%%%%%
     
@@ -62,7 +67,8 @@ try
     %%%%%%%%%%%%%%%%%
 
     % volumeFull =
-
+    volumeFull = permute(volumeFull,[2 1 3]);
+    volumeFull = flipdim(volumeFull,1);
     %%%%%%%%%%%%%%%%%
  
     
@@ -82,7 +88,7 @@ catch err
 
     errorXML(err,error,resultsPath);
     [status,result]=system(char(strcat('precisioncli',{' '},'result',{' '},resultsPath)));
-    %exit
+    exit
     
 end
 
@@ -113,7 +119,7 @@ catch err
 
     errorXML(err,error,resultsPath);
     [status,result]=system(char(strcat('precisioncli',{' '},'result',{' '},resultsPath)));
-    %exit
+    exit
 
 end
 
@@ -132,11 +138,12 @@ try
     %%% Calculate the mean, standard deviation, median and percentiles 25 and 75 of the image values inside the ROI
     %%%%%%%%%%%%%%%%%
 %     
-%     volumeMean = 
-%     volumeStd = 
-%     volumeMedian = 
-%     volumeP25 = 
-%     volumeP75 = 
+    values=double(volumeFull(mask>0));
+     volumeMean = mean(values);
+     volumeStd = std(values);
+     volumeMedian = median(values);
+     volumeP25 =  prctile(values,25);
+     volumeP75 = prctile(values,75);
 
     %%%%%%%%%%%%%%%%%
     
@@ -199,19 +206,15 @@ try
     mkdir(reportFolderROIImages);
 
     % Save Image with Mask
-    
-    %%%%%%%%%%%%%%%%%
-    %%%% TO FILL %%%%
-    %%%%%%%%%%%%%%%%%
+    figure(1); imagesc(volumeFull(:,:,sliceNumbersMask(1))); colormap gray;
+    hold on;
+    imcontour(mask(:,:,sliceNumbersMask(1)),[0.5],'-r');
     
     print('-djpeg', fullfile(reportFolderROIImages,'1.jpg'), '-r300');
     
     
     % Plot histogram
-
-    %%%%%%%%%%%%%%%%%
-    %%%% TO FILL %%%%
-    %%%%%%%%%%%%%%%%%
+    figure(2); hist(values, 256);
     
     print('-djpeg', fullfile(reportFolderROIImages,'2.jpg'), '-r300');
     
@@ -222,7 +225,7 @@ try
     imagePath.Body2.NamePhoto = '2.jpg';
     
     %%%%%%%%%%%%%%%%%
-    % pluginName=
+    pluginName='ROI statistics';
     %%%%%%%%%%%%%%%%%
 
     %% Create report.xml

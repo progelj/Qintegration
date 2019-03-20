@@ -1,7 +1,8 @@
 function [swCell,steps]=stepWiseJson(stage,stageDescription,stagePercent,stageTime,swCell,steps,PathResultados);
 
 %Date-Time ISO
-dateTimeISO=datestr(datetime,31);
+% dateTimeISO=datestr(datetime,31); Matlab only % PRJ
+dateTimeISO=datestr(clock(),31);
 
 sw.date=dateTimeISO;
 sw.label=stage;
